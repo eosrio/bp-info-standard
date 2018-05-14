@@ -1,15 +1,15 @@
 const bp_info = {
 	candidate_name: String,
-	is_producer: Boolean,
 	producer_account_name: String,
 	producer_public_key: String,
 	org_location: String,
 	org_country_code: String,
-	p2p_endpoint: String,
-	api_endpoint: String,
-	ssl_endpoint: String, //optional
 	node_location: [{
-		place: String
+		place: String,
+		is_producer: Boolean,
+		p2p_endpoint: String,
+		api_endpoint: String,
+		ssl_endpoint: String, //optional
 		latitude: Number,
 		longitude: Number
 	}],
