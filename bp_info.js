@@ -2,6 +2,8 @@ const bp_info = {
 	candidate_name: String,
 	org_location: String,
 	org_country_code: String,
+	p2p_endpoint: String,
+	api_endpoint: String,
 	node_location: [{
 		place: String
 		latitude: Number,
