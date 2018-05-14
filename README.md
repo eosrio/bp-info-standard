@@ -6,6 +6,8 @@ This is a proposed standard for Block Producer candidates to publish as the URL 
 - candidate_name: Organization name
 - org_location: Human-readable organization location
 - org_country_code: Organization country code
+- p2p_endpoint: Main P2P Endpoint (host:port)
+- api_endpoint: Main HTTP API Endpoint (https://hostname:port)
 - node_location: [Array]
   - place: Human-readable node location
   - latitude: Node latitude in decimal degrees (DD)
