@@ -2,7 +2,7 @@ const bp_info = {
 	candidate_name: String,
 	is_producer: Boolean,
 	producer_account_name: String,
-	producer_public_key: string,
+	producer_public_key: String,
 	org_location: String,
 	org_country_code: String,
 	p2p_endpoint: String,
