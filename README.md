@@ -6,6 +6,7 @@ This is a proposed standard for Block Producer candidates to publish as the URL 
 - candidate_name: Organization name
 - is_blockproducer: True or false
 - producer_name: Name of producer account
+- producer_public_key: Public key for producer account
 - org_location: Human-readable organization location
 - org_country_code: Organization country code
 - p2p_endpoint: Main P2P Endpoint (host:port)
