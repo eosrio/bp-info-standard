@@ -33,8 +33,10 @@
   "required": [
     "producer_account_name",
     "producer_public_key",
-    "org"
+    "org",
+    "nodes"
   ],
+  "additionalProperties": false,
   "properties": {
     "producer_account_name": {
       "$id": "/properties/producer_account_name",
