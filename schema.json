@@ -70,10 +70,43 @@
           "description": "Organization website",
           "type": "string"
         },
+        "code_of_conduct": {
+          "$id": "/properties/org/properties/code_of_conduct",
+          "description": "Link to Code of Conduct",
+          "type": "string"
+        },
+        "email": {
+          "$id": "/properties/org/properties/email",
+          "description": "Organization email",
+          "type": "string"
+        },
+        "branding": {
+          "type": "object",
+          "properties":{
+            "logo_256": {
+              "$id": "/properties/org/properties/branding/properties/logo_256",
+              "description": "Link to Organization logo [PNG format, 256x256]",
+              "type": "string"
+            },
+            "logo_1024": {
+              "$id": "/properties/org/properties/branding/properties/logo_1024",
+              "description": "Link to Organization logo [PNG format, 1024x1024]",
+              "type": "string"
+            },
+            "logo_svg": {
+              "$id": "/properties/org/properties/branding/properties/logo_svg",
+              "description": "Link to Organization logo [SVG format]",
+              "type": "string"
+            },
+          }
+        },
         "social": {
           "type": "object",
           "properties": {
             "facebook": {
+              "type": "String"
+            },
+            "github": {
               "type": "String"
             },
             "keybase": {
@@ -89,6 +122,9 @@
               "type": "String"
             },
             "twitter": {
+              "type": "String"
+            },
+            "wechat": {
               "type": "String"
             },
             "youtube": {
