@@ -1,5 +1,5 @@
 # EOS BP Information Standard
-JSON Standard for Block Producer Information on the EOS Blockchain
+**JSON Standard for Block Producer Information on the EOS Blockchain**
 
 This is a proposed standard for Block Producer candidates to publish as the URL field of the `regproducer` action on the `eosio.system` contract.
 
@@ -27,5 +27,5 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
   - api_endpoint: EOSIO HTTP endpoint `http://host:port`
   - ssl_endpoint: EOSIO HTTPS endpoint `https://host:port`
 
-## Useful Links
-One can check for data validity usgin: https://www.jsonschemavalidator.net/
+### Useful Links
+One can check for data validity using: https://www.jsonschemavalidator.net/
