@@ -1,0 +1,49 @@
+{
+  "producer_account_name": "",
+  "producer_public_key": "",
+  "org": {
+    "candidate_name": "",
+    "website": "",
+    "location": {
+      "name": "",
+      "country": "",
+      "latitude": 0,
+      "longitude": 0
+    },
+    "social": {
+      "steemit": "",
+      "twitter": "",
+      "youtube": "",
+      "facebook": "",
+      "reddit": "",
+      "keybase": "",
+      "telegram": ""
+    }
+  },
+  "nodes": [
+    {
+      "location": {
+        "name": "",
+        "country": "",
+        "latitude": 0,
+        "longitude": 0
+      },
+      "is_producer": false,
+      "p2p_endpoint": "",
+      "api_endpoint": "",
+      "ssl_endpoint": ""
+    },
+    {
+      "location": {
+        "name": "",
+        "country": "",
+        "latitude": 0,
+        "longitude": 0
+      },
+      "is_producer": true,
+      "p2p_endpoint": "",
+      "api_endpoint": "",
+      "ssl_endpoint": ""
+    }
+  ]
+}
