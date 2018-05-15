@@ -1,96 +1,130 @@
 {
-    "title": "BlockProducer",
-    "description": "Information about a block producer on the EOS blockchain",
-    "definitions":{
-        "location": {
-            "type":"object",
-            "properties": {
-                "name": {
-                    "description": "Location in human readable format [City, State]",
-                    "type": "string"
-                },
-                "country": {
-                    "description": "Country code [XX]",
-                    "type": "string"
-                },
-                "latitude": {
-                    "description":"Latitude in decimal degrees",
-                    "type":"float"
-                },
-                "longitude": {
-                    "description":"Longitude in decimal degrees",
-                    "type":"float"
-                },
-            }
+  "title": "BlockProducer",
+  "description": "Information about a block producer on the EOS blockchain",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "location": {
+      "type": "object",
+      "required": [
+        "name",
+        "country"
+      ],
+      "properties": {
+        "name": {
+          "description": "Location in human readable format [City, State]",
+          "type": "string"
+        },
+        "country": {
+          "description": "Country code [XX]",
+          "type": "string"
+        },
+        "latitude": {
+          "description": "Latitude in decimal degrees",
+          "type": "number"
+        },
+        "longitude": {
+          "description": "Longitude in decimal degrees",
+          "type": "number"
         }
-    },
-    "type": "object",
-    "properties": {
-        "producer_account_name": {
-            "description": "12-char producer account name",
-            "type": "string"
-        },
-        "producer_public_key":{
-            "description": "Public key starting with EOS",
-            "type": "string"
-        },
-        "org":{
-            "type":"object",
-            "properties":{
-                "location": {
-                    "description":"Organization location",
-                    "type":"location"
-                },
-                "candidate_name": {
-                    "description": "Producer/organization name",
-                    "type": "string"
-                },
-                "website": {
-                    "description": "Organization website",
-                    "type": "string"
-                },
-                "social": {
-                    "type":"object",
-                    "properties": {
-                        "facebook": {"type": "String"},
-                        "keybase":  {"type": "String"},
-                        "reddit":   {"type": "String"},
-                        "steemit":  {"type": "String"},
-                        "telegram": {"type": "String"},
-                        "twitter":  {"type": "String"},
-                        "youtube":  {"type": "String"},
-                    }
-                }
-            },
-            "required":["location","candidate_name","website"]
-        },
-        "nodes": {
-            "type":"array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "location": {
-                        "description": "Node location",
-                        "type": "location"
-                    },
-                    "is_producer": {
-                        "description": "Is this node a producer?",
-                        "type": "boolean"
-                    },
-                    "p2p_endpoint": {
-                        "description": "EOSIO P2P endpoint (host:port)",
-                        "type": "string"
-                    },
-                    "api_endpoint": {
-                        "description": "EOSIO HTTP endpoint (http://host:port)",
-                        "type": "string"
-                    },
-                    "ssl_endpoint": {
-                        "description": "EOSIO HTTPS endpoint (https://host:port)",
-                        "type": "string"
-                    },
-                }
-            }
-        }
+      }
     }
+  },
+  "type": "object",
+  "required": [
+    "producer_account_name",
+    "producer_public_key",
+    "org"
+  ],
+  "properties": {
+    "producer_account_name": {
+      "$id": "/properties/producer_account_name",
+      "description": "12-char producer account name",
+      "type": "string"
+    },
+    "producer_public_key": {
+      "$id": "/properties/producer_public_key",
+      "description": "Public key starting with EOS",
+      "type": "string"
+    },
+    "org": {
+      "type": "object",
+      "properties/location": {
+        "location": {
+          "$ref": "#/definitions/location",
+          "description": "Organization location",
+          "type": "location"
+        },
+        "candidate_name": {
+          "$id": "/properties/org/properties/candidate_name",
+          "description": "Producer/organization name",
+          "type": "string"
+        },
+        "website": {
+          "$id": "/properties/org/properties/website",
+          "description": "Organization website",
+          "type": "string"
+        },
+        "social": {
+          "type": "object",
+          "properties": {
+            "facebook": {
+              "type": "String"
+            },
+            "keybase": {
+              "type": "String"
+            },
+            "reddit": {
+              "type": "String"
+            },
+            "steemit": {
+              "type": "String"
+            },
+            "telegram": {
+              "type": "String"
+            },
+            "twitter": {
+              "type": "String"
+            },
+            "youtube": {
+              "type": "String"
+            }
+          }
+        }
+      },
+      "required": [
+        "location",
+        "candidate_name",
+        "website"
+      ]
+    },
+    "nodes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "$ref": "#/definitions/location",
+            "description": "Node location"
+          },
+          "is_producer": {
+            "description": "Is this node a producer?",
+            "type": "boolean"
+          },
+          "p2p_endpoint": {
+            "description": "EOSIO P2P endpoint (host:port)",
+            "type": "string"
+          },
+          "api_endpoint": {
+            "description": "EOSIO HTTP endpoint (http://host:port)",
+            "type": "string"
+          },
+          "ssl_endpoint": {
+            "description": "EOSIO HTTPS endpoint (https://host:port)",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
 }
