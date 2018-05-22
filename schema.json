@@ -97,7 +97,7 @@
               "$id": "/properties/org/properties/branding/properties/logo_svg",
               "description": "Link to Organization logo [SVG format]",
               "type": "string"
-            },
+            }
           }
         },
         "social": {
