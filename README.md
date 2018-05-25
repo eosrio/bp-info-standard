@@ -1,5 +1,6 @@
-## This is just a placeholder.
+## This is just a placeholder to display our use of this schema.
 [Click here to view the bp-info-standard repository](https://github.com/eosrio/bp-info-standard)
+**Do not copy schema from this repository, it will not be updated when the origin is updated**
 
 We are using `bp-info-standard` formatted JSON to collect optional extra meta-data about BPs.
 
