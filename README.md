@@ -21,4 +21,4 @@ You can ovveride properties of the base `bp.json` file by creating a chain speci
 ----bp.2018052300203000000000000000000000000000000000007472696e6974790a.json
 ```
 
-The bp.json and bp.chain.json will be merged and any property inside of the chain specific json file will override the base properties.
+The `bp.json` and `bp.${chain_id}.json` will be merged and any property inside of the chain specific json file will override the base properties.
