@@ -1,7 +1,8 @@
 ## This is just a placeholder.
+[Click here to view the bp-info-standard repository](https://github.com/eosrio/bp-info-standard)
 
 We are using `bp-info-standard` formatted JSON to collect optional extra meta-data about BPs.
-[Click here to view the bp-info-standard repository](https://github.com/eosrio/bp-info-standard)
+
 
 ### The base json file
 
