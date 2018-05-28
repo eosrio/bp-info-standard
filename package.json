@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sogasg/bp-info-standard.git"
+    "url": "git+https://github.com/EOSPortal/bp-info-standard.git"
   },
   "author": "",
   "license": "ISC"
