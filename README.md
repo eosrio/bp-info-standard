@@ -12,7 +12,7 @@ When you register your producer the `url` field should be filled with `http://yo
 
 ### Overriding jsons for specific chains
 
-You can ovveride properties of the base `bp.json` file by creating a chain specific json file next to your base.
+You can override properties of the base `bp.json` file by creating a chain specific json file next to your base.
 
 ```
 --/
