@@ -104,30 +104,39 @@
           "type": "object",
           "properties": {
             "facebook": {
+              "description": "group/page address only, not the entire url",
               "type": "String"
             },
             "github": {
+              "description": "username only",
               "type": "String"
             },
             "keybase": {
+              "description": "username only",
               "type": "String"
             },
             "reddit": {
+              "description": "username only",
               "type": "String"
             },
             "steemit": {
+              "description": "username only, WITHOUT @",
               "type": "String"
             },
             "telegram": {
+              "description": "username only",
               "type": "String"
             },
             "twitter": {
+              "description": "username only",
               "type": "String"
             },
             "wechat": {
+              "description": "username only",
               "type": "String"
             },
             "youtube": {
+              "description": "channel address only",
               "type": "String"
             }
           }
