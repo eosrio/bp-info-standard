@@ -1,0 +1,12 @@
+{
+  "name": "bp-info-standard",
+  "version": "0.0.1",
+  "description": "**JSON Standard for Block Producer Information on the EOS Blockchain**",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eosrio/bp-info-standard.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
