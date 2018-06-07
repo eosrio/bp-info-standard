@@ -1,0 +1,58 @@
+{
+  "producer_account_name": "", // required and must match the account used on regproducer
+  "producer_public_key": "",   // required and must match the key used on regproducer
+  "org": {
+    "candidate_name": "",      // required
+    "website": "",             // required
+    "code_of_conduct":"",      // Full url to where it is
+    "email":"",
+    "branding":{
+      "logo_256":"",   // Full url to image 256x256px
+      "logo_1024":"",  // Full url to image 1024x1024px
+      "logo_svg":""    // Full url to image svg
+    },
+    "location": {      // required
+      "name": "",      // location in human readable format City, State
+      "country": "",   // country code XX
+      "latitude": 0,   // Latitude in decimal degrees
+      "longitude": 0   // Longitude in decimal degrees
+    },
+    "social": {        // NOT THE FULL URL, only the username
+      "steemit": "",   // Username without @
+      "twitter": "",   // Username
+      "youtube": "",   // Channel address
+      "facebook": "",  // Page/group address
+      "github":"",     // Username
+      "reddit": "",    // Username
+      "keybase": "",   // Username
+      "telegram": "",  // Username
+      "wechat":""      // Username
+    }
+  },
+  "nodes": [ 
+    {
+      "location": {
+        "name": "",    // Node location in human readable format City, State
+        "country": "", // Node country code XX
+        "latitude": 0, // Node latitude in decimal degrees
+        "longitude": 0 // Node longitude in decimal degrees
+      },
+      "is_producer": false, // Is this node a producer? true/false
+      "p2p_endpoint": "",   // EOSIO P2P endpoint host:port
+      "api_endpoint": "",   // EOSIO HTTP endpoint http://host:port
+      "ssl_endpoint": ""    // EOSIO HTTPS endpoint https://host:port
+    },
+    {
+      "location": {
+        "name": "",
+        "country": "",
+        "latitude": 0,
+        "longitude": 0
+      },
+      "is_producer": true, 
+      "p2p_endpoint": "", 
+      "api_endpoint": "", 
+      "ssl_endpoint": "" 
+    }
+  ]
+}
