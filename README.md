@@ -44,5 +44,22 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
     - api_endpoint: EOSIO HTTP endpoint `http://host:port`
     - ssl_endpoint: EOSIO HTTPS endpoint `https://host:port`
 
+### How to use it if you are Block Producer Candidate 
+Create a file named `bp.json` in the root of your domain. For instance `http://yourwebsite.com/bp.json` When you register your producer using the `system.regproducer` action, the url field should be filled with `http://yourwebsite.com`. **Do not put the bp.json file in the url.**
+
+### Overriding jsons for specific chains
+
+You can override properties of the base `bp.json` file by creating a chain specific json file next to your base.
+
+```
+--/
+----index.html
+----bp.json
+----bp.${chain_id}.json
+----bp.2018052300203000000000000000000000000000000000007472696e6974790a.json
+```
+
+The `bp.json` and `bp.${chain_id}.json` will be merged and any property inside of the chain specific json file will override the base properties.
+
 ### Useful Links
 One can check for data validity using: https://www.jsonschemavalidator.net/
