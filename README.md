@@ -18,7 +18,7 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
       - logo_svg: Entire url to image svg
    - location: {Object} - Organization location
       - name: Location in human readable format [City, State]
-      - country: Country code [XX]
+      - country: Country code [XX] in accordance to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
       - latitude: Latitude in decimal degrees
       - longitude: Longitude in decimal degrees
     },
