@@ -1,4 +1,13 @@
 {
+  "title": "",
+  "tagline": {
+    "en": "",
+    "zh": ""
+  },
+  "introduce": {
+    "en": "",
+    "zh": ""
+  },
   "producer_account_name": "",
   "producer_public_key": "",
   "org": {
