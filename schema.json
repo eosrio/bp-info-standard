@@ -166,6 +166,10 @@
             "description": "EOSIO P2P endpoint (host:port)",
             "type": "string"
           },
+          "bnet_endpoint": {
+            "description": "EOSIO BNET endpoint (host:port)",
+            "type": "string"
+          },
           "api_endpoint": {
             "description": "EOSIO HTTP endpoint (http://host:port)",
             "type": "string"
