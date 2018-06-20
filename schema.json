@@ -75,6 +75,11 @@
           "description": "Link to Code of Conduct",
           "type": "string"
         },
+        "ownership_disclosure": {
+          "$id": "/properties/org/properties/ownership_disclosure",
+          "description": "Link to company ownership disclosure",
+          "type": "string"
+        },
         "email": {
           "$id": "/properties/org/properties/email",
           "description": "Organization email",

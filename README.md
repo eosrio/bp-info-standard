@@ -11,6 +11,7 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
   - candidate_name: Producer/organization name
   - website: Block producer website
   - code_of_conduct: Full link to where it is,
+  - ownership_disclosure: Full link to where it is,
   - email: Contact email
   - branding: {Object} - Logo images
       - logo_256: Entire url to image 256x256px
