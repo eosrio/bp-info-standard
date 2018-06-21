@@ -25,7 +25,6 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
     },
   - social: {Object} - NOT THE ENTIRE URL, only usernames on social networks, 
     - steemit: Username without @
-    - steemit: Username
     - twitter: Username
     - youtube: Channel address
     - facebook: Page/group address
