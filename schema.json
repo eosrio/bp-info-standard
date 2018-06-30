@@ -164,8 +164,16 @@
             "description": "Node location"
           },
           "is_producer": {
-            "description": "Is this node a producer?",
+            "description": "Is this node a producer? (deprecated: use node_type instead)",
             "type": "boolean"
+          },
+          "node_type": {
+            "description": "Type of service",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["producer", "full", "query"]
+            }
           },
           "p2p_endpoint": {
             "description": "EOSIO P2P endpoint (host:port)",

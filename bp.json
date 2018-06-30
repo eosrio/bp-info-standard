@@ -39,6 +39,7 @@
         "longitude": 0
       },
       "is_producer": true,
+      "node_type": "producer",
       "p2p_endpoint": "",
       "bnet_endpoint": "",
       "api_endpoint": "",
@@ -52,6 +53,7 @@
         "longitude": 0
       },
       "is_producer": false,
+      "node_type":"",
       "p2p_endpoint": "",
       "bnet_endpoint": "",
       "api_endpoint": "",
