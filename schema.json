@@ -167,6 +167,14 @@
             "description": "Is this node a producer?",
             "type": "boolean"
           },
+          "node_type": {
+            "description": "Type of service",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["producer", "full", "query"]
+            }
+          },
           "p2p_endpoint": {
             "description": "EOSIO P2P endpoint (host:port)",
             "type": "string"
