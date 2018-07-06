@@ -39,7 +39,7 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
         - country: Node country code [XX]
         - latitude: Node latitude in decimal degrees
         - longitude: Node longitude in decimal degrees
-    - is_producer: Is this node a producer? `true/false`
+    - is_producer: Is this node a producer? `true/false` (deprecated, use node_type = producer)
     - node_type: Type of service `producer/full/query`
     - p2p_endpoint: EOSIO P2P endpoint `host:port`
     - bnet_endpoint: EOSIO BNET endpoint `host:port`
