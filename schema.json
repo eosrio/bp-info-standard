@@ -172,7 +172,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "enum": ["producer", "full", "query"]
+              "enum": ["producer", "full", "query", "seed"]
             }
           },
           "p2p_endpoint": {
