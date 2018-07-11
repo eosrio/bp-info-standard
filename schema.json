@@ -15,8 +15,11 @@
           "type": "string"
         },
         "country": {
-          "description": "Country code [XX]",
-          "type": "string"
+          "description": "ISO 3166-1 alpha 2 country code [XX]",
+          "type": "string",
+          "maxLength": 2,
+          "minLength": 2,
+          "pattern": "^[A-Z]+$"
         },
         "latitude": {
           "description": "Latitude in decimal degrees",
@@ -43,22 +46,24 @@
       "description": "Producer account name",
       "type": "string",
       "maxLength": 12,
-      "minLength": 1
+      "minLength": 1,
+      "pattern": "^[\\.12345a-z]+$"
     },
     "producer_public_key": {
       "$id": "/properties/producer_public_key",
       "description": "Public key starting with EOS",
       "type": "string",
       "maxLength": 53,
-      "minLength": 53
+      "minLength": 53,
+      "pattern": "^EOS[\\w\\d]+$"
     },
     "org": {
       "type": "object",
-      "properties/location": {
+      "properties": {
         "location": {
           "$ref": "#/definitions/location",
           "description": "Organization location",
-          "type": "location"
+          "type": "object"
         },
         "candidate_name": {
           "$id": "/properties/org/properties/candidate_name",
@@ -68,22 +73,26 @@
         "website": {
           "$id": "/properties/org/properties/website",
           "description": "Organization website",
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "code_of_conduct": {
           "$id": "/properties/org/properties/code_of_conduct",
           "description": "Link to Code of Conduct",
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "ownership_disclosure": {
           "$id": "/properties/org/properties/ownership_disclosure",
           "description": "Link to company ownership disclosure",
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "email": {
           "$id": "/properties/org/properties/email",
           "description": "Organization email",
-          "type": "string"
+          "type": "string",
+          "format": "email"
         },
         "branding": {
           "type": "object",
@@ -91,17 +100,20 @@
             "logo_256": {
               "$id": "/properties/org/properties/branding/properties/logo_256",
               "description": "Link to Organization logo [PNG format, 256x256]",
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "logo_1024": {
               "$id": "/properties/org/properties/branding/properties/logo_1024",
               "description": "Link to Organization logo [PNG format, 1024x1024]",
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "logo_svg": {
               "$id": "/properties/org/properties/branding/properties/logo_svg",
               "description": "Link to Organization logo [SVG format]",
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             }
           }
         },
@@ -110,39 +122,48 @@
           "properties": {
             "facebook": {
               "description": "group/page address only, not the entire url",
-              "type": "String"
+              "type": "string",
+              "pattern": "^[\\w\\d_\\-\\.]+$"
             },
             "github": {
               "description": "username only",
-              "type": "String"
+              "type": "string",
+              "pattern": "^[\\w\\d_\\-\\.]+$"
             },
             "keybase": {
               "description": "username only",
-              "type": "String"
+              "type": "string",
+              "pattern": "^[\\w\\d_\\-\\.]+$"
             },
             "reddit": {
               "description": "username only",
-              "type": "String"
+              "type": "string",
+              "pattern": "^[\\w\\d_\\-\\.]+$"
             },
             "steemit": {
               "description": "username only, WITHOUT @",
-              "type": "String"
+              "type": "string",
+              "pattern": "^[\\w\\d_\\-\\.]+$"
             },
             "telegram": {
               "description": "username only",
-              "type": "String"
+              "type": "string",
+              "pattern": "^[\\w\\d_\\-\\.]+$"
             },
             "twitter": {
               "description": "username only",
-              "type": "String"
+              "type": "string",
+              "pattern": "^[\\w\\d_\\-\\.]+$"
             },
             "wechat": {
               "description": "username only",
-              "type": "String"
+              "type": "string",
+              "pattern": "^[\\w\\d_\\-\\.]+$"
             },
             "youtube": {
               "description": "channel address only",
-              "type": "String"
+              "type": "string",
+              "pattern": "^[\\w\\d_\\-\\.]+$"
             }
           }
         }
@@ -169,11 +190,20 @@
           },
           "node_type": {
             "description": "Type of service",
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": ["producer", "full", "query", "seed"]
-            }
+            "oneOf": [
+              {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": ["producer", "full", "query", "seed"]
+                }
+              },
+              {
+                "type": "string",
+                "enum": ["producer", "full", "query", "seed"]
+              }
+            ]
           },
           "p2p_endpoint": {
             "description": "EOSIO P2P endpoint (host:port)",
@@ -185,11 +215,13 @@
           },
           "api_endpoint": {
             "description": "EOSIO HTTP endpoint (http://host:port)",
-            "type": "string"
+            "type": "string",
+            "pattern": "^http://.+$"
           },
           "ssl_endpoint": {
             "description": "EOSIO HTTPS endpoint (https://host:port)",
-            "type": "string"
+            "type": "string",
+            "pattern": "^https://.+$"
           }
         }
       }
