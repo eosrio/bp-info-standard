@@ -74,19 +74,22 @@
           "$id": "/properties/org/properties/website",
           "description": "Organization website",
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "pattern": "^https?://"
         },
         "code_of_conduct": {
           "$id": "/properties/org/properties/code_of_conduct",
           "description": "Link to Code of Conduct",
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "pattern": "^https?://"
         },
         "ownership_disclosure": {
           "$id": "/properties/org/properties/ownership_disclosure",
           "description": "Link to company ownership disclosure",
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "pattern": "^https?://"
         },
         "email": {
           "$id": "/properties/org/properties/email",
@@ -101,19 +104,22 @@
               "$id": "/properties/org/properties/branding/properties/logo_256",
               "description": "Link to Organization logo [PNG format, 256x256]",
               "type": "string",
-              "format": "uri"
+              "format": "uri",
+              "pattern": "^https?://"
             },
             "logo_1024": {
               "$id": "/properties/org/properties/branding/properties/logo_1024",
               "description": "Link to Organization logo [PNG format, 1024x1024]",
               "type": "string",
-              "format": "uri"
+              "format": "uri",
+              "pattern": "^https?://"
             },
             "logo_svg": {
               "$id": "/properties/org/properties/branding/properties/logo_svg",
               "description": "Link to Organization logo [SVG format]",
               "type": "string",
-              "format": "uri"
+              "format": "uri",
+              "pattern": "^https?://"
             }
           }
         },
@@ -216,12 +222,14 @@
           "api_endpoint": {
             "description": "EOSIO HTTP endpoint (http://host:port)",
             "type": "string",
-            "pattern": "^http://.+$"
+            "format": "uri",
+            "pattern": "^http://"
           },
           "ssl_endpoint": {
             "description": "EOSIO HTTPS endpoint (https://host:port)",
             "type": "string",
-            "pattern": "^https://.+$"
+            "format": "uri",
+            "pattern": "^https://"
           }
         }
       }
