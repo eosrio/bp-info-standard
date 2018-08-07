@@ -6,7 +6,6 @@ This is a proposed standard for Block Producer candidates to publish as the URL 
 The current revision is compliant with the JSON schema Draft v7 - http://json-schema.org/specification.html
 
 - producer_account_name: Name of producer account
-- producer_public_key: Public key for producer account
 - org: [Object]
   - candidate_name: Producer/organization name
   - website: Block producer website
