@@ -54,7 +54,6 @@
   "type": "object",
   "required": [
     "producer_account_name",
-    "producer_public_key",
     "org",
     "nodes"
   ],
@@ -67,14 +66,6 @@
       "maxLength": 12,
       "minLength": 1,
       "pattern": "^[\\.12345a-z]+$"
-    },
-    "producer_public_key": {
-      "$id": "/properties/producer_public_key",
-      "description": "Public key starting with EOS",
-      "type": "string",
-      "maxLength": 53,
-      "minLength": 53,
-      "pattern": "^EOS[\\w\\d]+$"
     },
     "org": {
       "type": "object",
