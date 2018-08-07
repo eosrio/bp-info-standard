@@ -15,8 +15,11 @@
           "type": "string"
         },
         "country": {
-          "description": "Country code [XX]",
-          "type": "string"
+          "description": "ISO 3166-1 alpha 2 country code [XX]",
+          "type": "string",
+          "maxLength": 2,
+          "minLength": 2,
+          "pattern": "^[A-Z]+$"
         },
         "latitude": {
           "description": "Latitude in decimal degrees",
@@ -27,6 +30,25 @@
           "type": "number"
         }
       }
+    },
+    "required_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "optional_url": {
+      "type": "string",
+      "if": {
+        "pattern": ".+"
+      },
+      "then": {
+        "format": "uri",
+        "pattern": "^https?://"
+      }
+    },
+    "username": {
+      "type": "string",
+      "pattern": "^[\\w\\d_\\-\\.]*$"
     }
   },
   "type": "object",
@@ -42,15 +64,15 @@
       "description": "Producer account name",
       "type": "string",
       "maxLength": 12,
-      "minLength": 1
+      "minLength": 1,
+      "pattern": "^[\\.12345a-z]+$"
     },
     "org": {
       "type": "object",
-      "properties/location": {
+      "properties": {
         "location": {
           "$ref": "#/definitions/location",
-          "description": "Organization location",
-          "type": "location"
+          "description": "Organization location"
         },
         "candidate_name": {
           "$id": "/properties/org/properties/candidate_name",
@@ -58,42 +80,37 @@
           "type": "string"
         },
         "website": {
-          "$id": "/properties/org/properties/website",
-          "description": "Organization website",
-          "type": "string"
+          "$ref": "#/definitions/required_url",
+          "description": "Organization website"
         },
         "code_of_conduct": {
-          "$id": "/properties/org/properties/code_of_conduct",
-          "description": "Link to Code of Conduct",
-          "type": "string"
+          "$ref": "#/definitions/optional_url",
+          "description": "Link to Code of Conduct"
         },
         "ownership_disclosure": {
-          "$id": "/properties/org/properties/ownership_disclosure",
-          "description": "Link to company ownership disclosure",
-          "type": "string"
+          "$ref": "#/definitions/optional_url",
+          "description": "Link to company ownership disclosure"
         },
         "email": {
           "$id": "/properties/org/properties/email",
           "description": "Organization email",
-          "type": "string"
+          "type": "string",
+          "format": "email"
         },
         "branding": {
           "type": "object",
           "properties":{
             "logo_256": {
-              "$id": "/properties/org/properties/branding/properties/logo_256",
-              "description": "Link to Organization logo [PNG format, 256x256]",
-              "type": "string"
+              "$ref": "#/definitions/optional_url",
+              "description": "Link to Organization logo [PNG format, 256x256]"
             },
             "logo_1024": {
-              "$id": "/properties/org/properties/branding/properties/logo_1024",
-              "description": "Link to Organization logo [PNG format, 1024x1024]",
-              "type": "string"
+              "$ref": "#/definitions/optional_url",
+              "description": "Link to Organization logo [PNG format, 1024x1024]"
             },
             "logo_svg": {
-              "$id": "/properties/org/properties/branding/properties/logo_svg",
-              "description": "Link to Organization logo [SVG format]",
-              "type": "string"
+              "$ref": "#/definitions/optional_url",
+              "description": "Link to Organization logo [SVG format]"
             }
           }
         },
@@ -101,40 +118,40 @@
           "type": "object",
           "properties": {
             "facebook": {
-              "description": "group/page address only, not the entire url",
-              "type": "String"
+              "$ref": "#/definitions/username",
+              "description": "group/page address only, not the entire url"
             },
             "github": {
-              "description": "username only",
-              "type": "String"
+              "$ref": "#/definitions/username",
+              "description": "username only"
             },
             "keybase": {
-              "description": "username only",
-              "type": "String"
+              "$ref": "#/definitions/username",
+              "description": "username only"
             },
             "reddit": {
-              "description": "username only",
-              "type": "String"
+              "$ref": "#/definitions/username",
+              "description": "username only"
             },
             "steemit": {
-              "description": "username only, WITHOUT @",
-              "type": "String"
+              "$ref": "#/definitions/username",
+              "description": "username only, WITHOUT @"
             },
             "telegram": {
-              "description": "username only",
-              "type": "String"
+              "$ref": "#/definitions/username",
+              "description": "username only"
             },
             "twitter": {
-              "description": "username only",
-              "type": "String"
+              "$ref": "#/definitions/username",
+              "description": "username only"
             },
             "wechat": {
-              "description": "username only",
-              "type": "String"
+              "$ref": "#/definitions/username",
+              "description": "username only"
             },
             "youtube": {
-              "description": "channel address only",
-              "type": "String"
+              "$ref": "#/definitions/username",
+              "description": "channel address only"
             }
           }
         }
@@ -161,11 +178,20 @@
           },
           "node_type": {
             "description": "Type of service",
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": ["producer", "full", "query", "seed"]
-            }
+            "oneOf": [
+              {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": ["producer", "full", "query", "seed"]
+                }
+              },
+              {
+                "type": "string",
+                "enum": ["producer", "full", "query", "seed"]
+              }
+            ]
           },
           "p2p_endpoint": {
             "description": "EOSIO P2P endpoint (host:port)",
@@ -177,11 +203,25 @@
           },
           "api_endpoint": {
             "description": "EOSIO HTTP endpoint (http://host:port)",
-            "type": "string"
+            "type": "string",
+            "if": {
+              "pattern": ".+"
+            },
+            "then": {
+              "format": "uri",
+              "pattern": "^http://"
+            }
           },
           "ssl_endpoint": {
             "description": "EOSIO HTTPS endpoint (https://host:port)",
-            "type": "string"
+            "type": "string",
+            "if": {
+              "pattern": ".+"
+            },
+            "then": {
+              "format": "uri",
+              "pattern": "^https://"
+            }
           }
         }
       }
