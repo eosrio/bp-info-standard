@@ -39,6 +39,10 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
         - latitude: Node latitude in decimal degrees
         - longitude: Node longitude in decimal degrees
     - node_type: Type of service `producer/full/query/seed`
+        - producer: Node with signing key
+        - full: Node in front of producer
+        - query: Node that provides HTTP(S) API to the public
+        - seed: Node that provides P2P and/or BNET to the public
     - is_producer (deprecated, use node_type = producer)
     - p2p_endpoint: EOSIO P2P endpoint `host:port`
     - bnet_endpoint: EOSIO BNET endpoint `host:port`
