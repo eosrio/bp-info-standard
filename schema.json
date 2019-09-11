@@ -31,10 +31,10 @@
         }
       }
     },
-    "required_url": {
+    "required_website_url": {
       "type": "string",
       "format": "uri",
-      "pattern": "^https?://"
+      "pattern": "^https?://.+[^\/]$"
     },
     "optional_url": {
       "type": "string",
@@ -80,7 +80,7 @@
           "type": "string"
         },
         "website": {
-          "$ref": "#/definitions/required_url",
+          "$ref": "#/definitions/required_website_url",
           "description": "Organization website"
         },
         "code_of_conduct": {
