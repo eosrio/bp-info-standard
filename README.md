@@ -63,7 +63,8 @@ The recommended way to specify multiple bp.json files under the same domain is t
     "1064487b3cd1a897ce03ae5b6a865651747e2e152090f99c1d19d44e01aea5a4": "/wax.json",
     "4667b205c6838ef70ff7988f6e8257e8be0e1284a2f59699054a018f743b1d11": "/telos.json",
     "21dcae42c0182200e93f954a074011f9048a7624c6fe81d3c9541a614a88bd1c": "/fio.json",
-    "d5a3d18fbb3c084e3b1f3fa98c21014b5f3db536cc15d08f9f6479517c6a3d86": "/bos.json"
+    "d5a3d18fbb3c084e3b1f3fa98c21014b5f3db536cc15d08f9f6479517c6a3d86": "/bos.json",
+    "0000000000000000000000000000000000000000000000000000000000000123": "/other_chain.json"
   }
 }
 ```
