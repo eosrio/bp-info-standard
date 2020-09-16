@@ -43,7 +43,7 @@
       },
       "then": {
         "format": "uri",
-        "pattern": "^https?://"
+        "pattern": "^https?://.+[^\/]$"
       }
     },
     "username": {
