@@ -12,6 +12,7 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
   - code_of_conduct: Full link to where it is,
   - ownership_disclosure: Full link to where it is,
   - email: Contact email
+  - github_user: Operational github username
   - branding: {Object} - Logo images
       - logo_256: Entire url to image 256x256px
       - logo_1024: Entire url to image 1024x1024px
@@ -38,16 +39,25 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
         - country: Node country code [XX]
         - latitude: Node latitude in decimal degrees
         - longitude: Node longitude in decimal degrees
-    - node_type: Type of service `producer/full/query/seed`
+    - node_type: Type of service `producer/query/seed` or an array of choices `["query","seed"]`
         - producer: Node with signing key
-        - full: Node in front of producer
-        - query: Node that provides HTTP(S) API to the public
-        - seed: Node that provides P2P and/or BNET to the public
-    - is_producer (deprecated, use node_type = producer)
+        - query: Node that provides HTTP(S) APIs to the public
+        - seed: Node that provides P2P access to the public
     - p2p_endpoint: EOSIO P2P endpoint `host:port`
-    - bnet_endpoint: EOSIO BNET endpoint `host:port`
     - api_endpoint: EOSIO HTTP endpoint `http://host:port`
     - ssl_endpoint: EOSIO HTTPS endpoint `https://host:port`
+    - features: array of features supported by the api endpoint (required on query type nodes), refer to the list of features below
+
+
+#### API Features (Query node only)
+For query type nodes one or more features from the list below must be added:
+  - `chain_api`: basic eosio::chain_api_plugin (/v1/chain/*)
+  - `account_query`: (/v1/chain/get_accounts_by_authorizers)
+  - `history-v1`: (/v1/history/*)
+  - `hyperion-v2`: (/v2/*)
+  - `dfuse`
+  - `fio-api`
+  - `snapshot-api`
 
 ### How to use it if you are Block Producer Candidate 
 Create a file named `bp.json` in the root of your domain. For instance `http://yourwebsite.com/bp.json` When you register your producer using the `system.regproducer` action, the url field should be filled with `http://yourwebsite.com`. **Do not put the bp.json file in the url.**

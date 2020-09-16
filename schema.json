@@ -1,6 +1,6 @@
 {
   "title": "BlockProducer",
-  "description": "Information about a block producer on the EOS blockchain",
+  "description": "Information about a block producer on EOSIO blockchains",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "location": {
@@ -34,7 +34,7 @@
     "required_url": {
       "type": "string",
       "format": "uri",
-      "pattern": "^https?://"
+      "pattern": "^https?://.+[^\/]$"
     },
     "optional_url": {
       "type": "string",
@@ -49,6 +49,10 @@
     "username": {
       "type": "string",
       "pattern": "^[\\w\\d_\\-\\.]*$"
+    },
+    "youtube_username": {
+      "type": "string",
+      "pattern": "^[\\w\\d_\\-\\./]*$"
     }
   },
   "type": "object",
@@ -96,6 +100,11 @@
           "description": "Organization email",
           "type": "string",
           "format": "email"
+        },
+        "github_user": {
+          "$id": "/properties/org/properties/github_user",
+          "description": "Operational github username",
+          "type": "string"
         },
         "branding": {
           "type": "object",
@@ -150,7 +159,7 @@
               "description": "username only"
             },
             "youtube": {
-              "$ref": "#/definitions/username",
+              "$ref": "#/definitions/youtube_username",
               "description": "channel address only"
             }
           }
@@ -167,14 +176,13 @@
       "uniqueItems": true,
       "items": {
         "type": "object",
+        "required": [
+          "node_type"
+        ],
         "properties": {
           "location": {
             "$ref": "#/definitions/location",
             "description": "Node location"
-          },
-          "is_producer": {
-            "description": "Is this node a producer? (deprecated: use node_type instead)",
-            "type": "boolean"
           },
           "node_type": {
             "description": "Type of service",
@@ -184,21 +192,17 @@
                 "uniqueItems": true,
                 "items": {
                   "type": "string",
-                  "enum": ["producer", "full", "query", "seed"]
+                  "enum": ["producer", "query", "seed"]
                 }
               },
               {
                 "type": "string",
-                "enum": ["producer", "full", "query", "seed"]
+                "enum": ["producer", "query", "seed"]
               }
             ]
           },
           "p2p_endpoint": {
             "description": "EOSIO P2P endpoint (host:port)",
-            "type": "string"
-          },
-          "bnet_endpoint": {
-            "description": "EOSIO BNET endpoint (host:port)",
             "type": "string"
           },
           "api_endpoint": {
@@ -221,6 +225,13 @@
             "then": {
               "format": "uri",
               "pattern": "^https://"
+            }
+          },
+          "features": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
             }
           }
         }
