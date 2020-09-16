@@ -39,7 +39,7 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
         - country: Node country code [XX]
         - latitude: Node latitude in decimal degrees
         - longitude: Node longitude in decimal degrees
-    - node_type: Type of service `producer/full/query/seed`
+    - node_type: Type of service `producer/query/seed` or an array of choices `["query","seed"]`
         - producer: Node with signing key
         - query: Node that provides HTTP(S) APIs to the public
         - seed: Node that provides P2P access to the public
