@@ -1,6 +1,6 @@
 {
   "title": "BlockProducer",
-  "description": "Information about a block producer on the EOS blockchain",
+  "description": "Information about a block producer on EOSIO blockchains",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "location": {
