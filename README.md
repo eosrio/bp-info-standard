@@ -49,17 +49,6 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
     - features: [Array]
         - features supported by the `api_endpoint` or `ssl_endpoint` on query nodes, refer to the [list of features](https://github.com/eosrio/bp-info-standard#api-features)
 
-
-#### API Features
-For query type nodes one or more features from the list below must be added:
-  - `chain_api`: basic eosio::chain_api_plugin (/v1/chain/*)
-  - `account_query`: (/v1/chain/get_accounts_by_authorizers)
-  - `history-v1`: (/v1/history/*)
-  - `hyperion-v2`: (/v2/*)
-  - `dfuse`
-  - `fio-api`
-  - `snapshot-api`
-
 ### How to use it if you are Block Producer Candidate 
 Create a file named `bp.json` in the root of your domain. For instance `http://yourwebsite.com/bp.json` When you register your producer using the `system.regproducer` action, the url field should be filled with `http://yourwebsite.com`. **Do not put the bp.json file in the url.**
 
@@ -93,6 +82,16 @@ You can also override properties of the base `bp.json` file by creating a chain 
 ```
 
 The `bp.json` and `bp.${chain_id}.json` will be merged and any property inside of the chain specific json file will override the base properties.
+
+### API Features
+For query type nodes one or more features from the list below must be added:
+  - `chain_api`: basic eosio::chain_api_plugin (/v1/chain/*)
+  - `account_query`: (/v1/chain/get_accounts_by_authorizers)
+  - `history-v1`: (/v1/history/*)
+  - `hyperion-v2`: (/v2/*)
+  - `dfuse`
+  - `fio-api`
+  - `snapshot-api`
 
 ### Useful Links
 One can check for data validity using: https://www.jsonschemavalidator.net/
