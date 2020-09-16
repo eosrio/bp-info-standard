@@ -34,7 +34,7 @@
     "required_url": {
       "type": "string",
       "format": "uri",
-      "pattern": "^https?://"
+      "pattern": "^https?://.+[^\/]$"
     },
     "optional_url": {
       "type": "string",
