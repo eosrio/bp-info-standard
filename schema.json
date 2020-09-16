@@ -176,6 +176,9 @@
       "uniqueItems": true,
       "items": {
         "type": "object",
+        "required": [
+          "node_type"
+        ],
         "properties": {
           "location": {
             "$ref": "#/definitions/location",
@@ -222,6 +225,13 @@
             "then": {
               "format": "uri",
               "pattern": "^https://"
+            }
+          },
+          "features": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
             }
           }
         }

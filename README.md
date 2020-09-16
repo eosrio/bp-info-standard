@@ -46,6 +46,18 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
     - p2p_endpoint: EOSIO P2P endpoint `host:port`
     - api_endpoint: EOSIO HTTP endpoint `http://host:port`
     - ssl_endpoint: EOSIO HTTPS endpoint `https://host:port`
+    - features: array of features supported by the api endpoint (required on query type nodes), refer to the list of features below
+
+
+#### API Features (Query node only)
+For query type nodes one or more features from the list below must be added:
+  - `chain_api`: basic eosio::chain_api_plugin (/v1/chain/*)
+  - `account_query`: (/v1/chain/get_accounts_by_authorizers)
+  - `history-v1`: (/v1/history/*)
+  - `hyperion-v2`: (/v2/*)
+  - `dfuse`
+  - `fio-api`
+  - `snapshot-api`
 
 ### How to use it if you are Block Producer Candidate 
 Create a file named `bp.json` in the root of your domain. For instance `http://yourwebsite.com/bp.json` When you register your producer using the `system.regproducer` action, the url field should be filled with `http://yourwebsite.com`. **Do not put the bp.json file in the url.**

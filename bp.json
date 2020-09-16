@@ -54,6 +54,21 @@
       "p2p_endpoint": "",
       "api_endpoint": "",
       "ssl_endpoint": ""
+    },
+    {
+      "location": {
+        "name": "",
+        "country": "",
+        "latitude": 0,
+        "longitude": 0
+      },
+      "node_type":"query",
+      "p2p_endpoint": "",
+      "api_endpoint": "",
+      "ssl_endpoint": "",
+      "features": [
+        "chain_api"
+      ]
     }
   ]
 }
