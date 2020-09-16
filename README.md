@@ -47,10 +47,10 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
     - api_endpoint: EOSIO HTTP endpoint `http://host:port`
     - ssl_endpoint: EOSIO HTTPS endpoint `https://host:port`
     - features: [Array]
-        - features supported by the api endpoint (required on query type nodes), refer to the list of features below
+        - features supported by the `api_endpoint` or `ssl_endpoint` on query nodes, refer to the [list of features](https://github.com/eosrio/bp-info-standard#api-features)
 
 
-#### API Features (Query node only)
+#### API Features
 For query type nodes one or more features from the list below must be added:
   - `chain_api`: basic eosio::chain_api_plugin (/v1/chain/*)
   - `account_query`: (/v1/chain/get_accounts_by_authorizers)
