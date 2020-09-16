@@ -24,7 +24,7 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
       - longitude: Longitude in decimal degrees
     },
   - social: {Object} - NOT THE ENTIRE URL, only usernames on social networks, 
-    - steemit: Username without @
+    - hive: Username without @
     - twitter: Username
     - youtube: Channel address
     - facebook: Page/group address

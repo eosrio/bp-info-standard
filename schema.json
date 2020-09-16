@@ -142,7 +142,7 @@
               "$ref": "#/definitions/username",
               "description": "username only"
             },
-            "steemit": {
+            "hive": {
               "$ref": "#/definitions/username",
               "description": "username only, WITHOUT @"
             },
