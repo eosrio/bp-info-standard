@@ -189,12 +189,12 @@
                 "uniqueItems": true,
                 "items": {
                   "type": "string",
-                  "enum": ["producer", "full", "query", "seed"]
+                  "enum": ["producer", "query", "seed"]
                 }
               },
               {
                 "type": "string",
-                "enum": ["producer", "full", "query", "seed"]
+                "enum": ["producer", "query", "seed"]
               }
             ]
           },
