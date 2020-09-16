@@ -41,7 +41,8 @@
       "p2p_endpoint": "",
       "bnet_endpoint": "",
       "api_endpoint": "",
-      "ssl_endpoint": ""
+      "ssl_endpoint": "",
+      "snapshot_endpoint": ""
     },
     {
       "location": {
@@ -54,7 +55,8 @@
       "p2p_endpoint": "",
       "bnet_endpoint": "",
       "api_endpoint": "",
-      "ssl_endpoint": ""
+      "ssl_endpoint": "",
+      "snapshot_endpoint": ""
     }
   ]
 }

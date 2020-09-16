@@ -222,6 +222,17 @@
               "format": "uri",
               "pattern": "^https://"
             }
+          },
+          "snapshot_endpoint": {
+            "description": "BP endpoint for public snapshots (https://host:port)",
+            "type": "string",
+            "if": {
+              "pattern": ".+"
+            },
+            "then": {
+              "format": "uri",
+              "pattern": "^https?://"
+            }
           }
         }
       }
