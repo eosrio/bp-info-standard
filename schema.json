@@ -49,6 +49,10 @@
     "username": {
       "type": "string",
       "pattern": "^[\\w\\d_\\-\\.]*$"
+    },
+    "youtube_username": {
+      "type": "string",
+      "pattern": "^[\\w\\d_\\-\\./]*$"
     }
   },
   "type": "object",
@@ -155,7 +159,7 @@
               "description": "username only"
             },
             "youtube": {
-              "$ref": "#/definitions/username",
+              "$ref": "#/definitions/youtube_username",
               "description": "channel address only"
             }
           }
