@@ -97,6 +97,11 @@
           "type": "string",
           "format": "email"
         },
+        "github_user": {
+          "$id": "/properties/org/properties/github_user",
+          "description": "Operational github username",
+          "type": "string"
+        },
         "branding": {
           "type": "object",
           "properties":{

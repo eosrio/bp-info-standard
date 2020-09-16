@@ -12,6 +12,7 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
   - code_of_conduct: Full link to where it is,
   - ownership_disclosure: Full link to where it is,
   - email: Contact email
+  - github_user: Operational github username
   - branding: {Object} - Logo images
       - logo_256: Entire url to image 256x256px
       - logo_1024: Entire url to image 1024x1024px
