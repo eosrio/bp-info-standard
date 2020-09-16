@@ -3,7 +3,7 @@
 
 This is a proposed standard for Block Producer candidates to publish as the URL field of the `regproducer` action on the `eosio.system` contract.
 
-The current revision is compliant with the JSON schema Draft v7 - http://json-schema.org/specification.html
+The current revision (1.0.1) is compliant with the JSON schema [Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8)
 
 - producer_account_name: Name of producer account
 - org: {Object}

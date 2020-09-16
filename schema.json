@@ -1,8 +1,8 @@
 {
   "title": "BlockProducer",
   "description": "Information about a block producer on EOSIO blockchains",
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "definitions": {
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$defs": {
     "location": {
       "type": "object",
       "required": [
@@ -75,7 +75,7 @@
       "type": "object",
       "properties": {
         "location": {
-          "$ref": "#/definitions/location",
+          "$ref": "#/$defs/location",
           "description": "Organization location"
         },
         "candidate_name": {
@@ -84,15 +84,15 @@
           "type": "string"
         },
         "website": {
-          "$ref": "#/definitions/required_url",
+          "$ref": "#/$defs/required_url",
           "description": "Organization website"
         },
         "code_of_conduct": {
-          "$ref": "#/definitions/optional_url",
+          "$ref": "#/$defs/optional_url",
           "description": "Link to Code of Conduct"
         },
         "ownership_disclosure": {
-          "$ref": "#/definitions/optional_url",
+          "$ref": "#/$defs/optional_url",
           "description": "Link to company ownership disclosure"
         },
         "email": {
@@ -110,15 +110,15 @@
           "type": "object",
           "properties":{
             "logo_256": {
-              "$ref": "#/definitions/optional_url",
+              "$ref": "#/$defs/optional_url",
               "description": "Link to Organization logo [PNG format, 256x256]"
             },
             "logo_1024": {
-              "$ref": "#/definitions/optional_url",
+              "$ref": "#/$defs/optional_url",
               "description": "Link to Organization logo [PNG format, 1024x1024]"
             },
             "logo_svg": {
-              "$ref": "#/definitions/optional_url",
+              "$ref": "#/$defs/optional_url",
               "description": "Link to Organization logo [SVG format]"
             }
           }
@@ -127,45 +127,45 @@
           "type": "object",
           "properties": {
             "facebook": {
-              "$ref": "#/definitions/username",
+              "$ref": "#/$defs/username",
               "description": "group/page address only, not the entire url"
             },
             "github": {
-              "$ref": "#/definitions/username",
+              "$ref": "#/$defs/username",
               "description": "username only"
             },
             "keybase": {
-              "$ref": "#/definitions/username",
+              "$ref": "#/$defs/username",
               "description": "username only"
             },
             "reddit": {
-              "$ref": "#/definitions/username",
+              "$ref": "#/$defs/username",
               "description": "username only"
             },
             "hive": {
-              "$ref": "#/definitions/username",
+              "$ref": "#/$defs/username",
               "description": "username only, WITHOUT @"
             },
             "telegram": {
-              "$ref": "#/definitions/username",
+              "$ref": "#/$defs/username",
               "description": "username only"
             },
             "twitter": {
-              "$ref": "#/definitions/username",
+              "$ref": "#/$defs/username",
               "description": "username only"
             },
             "wechat": {
-              "$ref": "#/definitions/username",
+              "$ref": "#/$defs/username",
               "description": "username only"
             },
             "youtube": {
-              "$ref": "#/definitions/youtube_username",
+              "$ref": "#/$defs/youtube_username",
               "description": "channel address only"
             }
           }
         },
         "chain_resources": {
-          "$ref": "#/definitions/optional_url",
+          "$ref": "#/$defs/optional_url",
           "description": "URL with chain snapshots and other downloads"
         },
         "other_resources": {
@@ -173,7 +173,7 @@
           "uniqueItems": true,
           "description": "URLs to other relevant resources",
           "items": {
-            "$ref": "#/definitions/optional_url"
+            "$ref": "#/$defs/optional_url"
           }
         }
       },
@@ -193,7 +193,7 @@
         ],
         "properties": {
           "location": {
-            "$ref": "#/definitions/location",
+            "$ref": "#/$defs/location",
             "description": "Node location"
           },
           "node_type": {
