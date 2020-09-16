@@ -163,6 +163,18 @@
               "description": "channel address only"
             }
           }
+        },
+        "chain_resources": {
+          "$ref": "#/definitions/optional_url",
+          "description": "URL with chain snapshots and other downloads"
+        },
+        "other_resources": {
+          "type": "array",
+          "uniqueItems": true,
+          "description": "URLs to other relevant resources",
+          "items": {
+            "$ref": "#/definitions/optional_url"
+          }
         }
       },
       "required": [
