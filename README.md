@@ -6,11 +6,11 @@ This is a proposed standard for Block Producer candidates to publish as the URL 
 The current revision is compliant with the JSON schema Draft v7 - http://json-schema.org/specification.html
 
 - producer_account_name: Name of producer account
-- org: [Object]
+- org: {Object}
   - candidate_name: Producer/organization name
   - website: Block producer website
-  - code_of_conduct: Full link to where it is,
-  - ownership_disclosure: Full link to where it is,
+  - code_of_conduct: Full URL to page,
+  - ownership_disclosure: Full URL to page,
   - email: Contact email
   - github_user: Operational github username
   - branding: {Object} - Logo images
@@ -24,14 +24,14 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
       - longitude: Longitude in decimal degrees
     },
   - social: {Object} - NOT THE ENTIRE URL, only usernames on social networks, 
-    - hive: Username without @
+    - keybase: Username
+    - telegram: Username or group
     - twitter: Username
+    - github: Username
     - youtube: Channel address
     - facebook: Page/group address
-    - github: Username
+    - hive: Username without @
     - reddit: Username
-    - keybase: Username
-    - telegram: Username
     - wechat: Username
 - nodes: [Array]
     - location: Node location
@@ -62,16 +62,33 @@ For query type nodes one or more features from the list below must be added:
 ### How to use it if you are Block Producer Candidate 
 Create a file named `bp.json` in the root of your domain. For instance `http://yourwebsite.com/bp.json` When you register your producer using the `system.regproducer` action, the url field should be filled with `http://yourwebsite.com`. **Do not put the bp.json file in the url.**
 
-### Overriding jsons for specific chains
+### Overriding data for specific chains
 
-You can override properties of the base `bp.json` file by creating a chain specific json file next to your base.
+The recommended way to specify multiple bp.json files under the same domain is to use the a `chains.json` file pointing to each `<chain>.json` file according to the chain_id, for example:
+
+```json
+{
+  "chains": {
+    "aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906": "/bp.json",
+    "1064487b3cd1a897ce03ae5b6a865651747e2e152090f99c1d19d44e01aea5a4": "/wax.json",
+    "4667b205c6838ef70ff7988f6e8257e8be0e1284a2f59699054a018f743b1d11": "/telos.json",
+    "21dcae42c0182200e93f954a074011f9048a7624c6fe81d3c9541a614a88bd1c": "/fio.json",
+    "d5a3d18fbb3c084e3b1f3fa98c21014b5f3db536cc15d08f9f6479517c6a3d86": "/bos.json"
+  }
+}
+```
+
+You can also override properties of the base `bp.json` file by creating a chain specific json file next to your base.
 
 ```
 --/
 ----index.html
+----chains.json
 ----bp.json
+----chainA.json
+----chainB.json
 ----bp.${chain_id}.json
-----bp.2018052300203000000000000000000000000000000000007472696e6974790a.json
+----bp.aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906.json
 ```
 
 The `bp.json` and `bp.${chain_id}.json` will be merged and any property inside of the chain specific json file will override the base properties.
