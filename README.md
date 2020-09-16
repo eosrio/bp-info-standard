@@ -46,7 +46,8 @@ The current revision is compliant with the JSON schema Draft v7 - http://json-sc
     - p2p_endpoint: EOSIO P2P endpoint `host:port`
     - api_endpoint: EOSIO HTTP endpoint `http://host:port`
     - ssl_endpoint: EOSIO HTTPS endpoint `https://host:port`
-    - features: array of features supported by the api endpoint (required on query type nodes), refer to the list of features below
+    - features: [Array]
+        - features supported by the api endpoint (required on query type nodes), refer to the list of features below
 
 
 #### API Features (Query node only)
