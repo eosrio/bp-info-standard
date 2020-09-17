@@ -86,8 +86,8 @@ The `bp.json` and `bp.${chain_id}.json` will be merged and any property inside o
 
 ### API Features
 For query type nodes one or more features from the list below must be added:
-  - `chain_api`: basic eosio::chain_api_plugin (/v1/chain/*)
-  - `account_query`: (/v1/chain/get_accounts_by_authorizers)
+  - `chain-api`: basic eosio::chain_api_plugin (/v1/chain/*)
+  - `account-query`: (/v1/chain/get_accounts_by_authorizers)
   - `history-v1`: (/v1/history/*)
   - `hyperion-v2`: (/v2/*)
   - `dfuse`

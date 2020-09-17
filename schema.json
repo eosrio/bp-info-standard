@@ -245,13 +245,14 @@
             "items": {
               "type": "string",
               "enum": [
-                "chain_api",
-                "account_query",
+                "chain-api",
+                "account-query",
                 "history-v1",
                 "hyperion-v2",
                 "dfuse",
                 "fio-api",
-                "snapshot-api"
+                "snapshot-api",
+                "dsp-api"
               ]
             }
           }
