@@ -1,9 +1,9 @@
-# EOS BP Information Standard
+# EOSIO BP Information Standard
 **JSON Standard for Block Producer Information on EOSIO Blockchains**
 
 This is a proposed standard for Block Producer candidates to publish as the URL field of the `regproducer` action on the `eosio.system` contract.
 
-The current revision (1.0.1) is compliant with the JSON schema [Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8)
+The current revision **v1.0.1** is compliant with the JSON schema [Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8)
 
 - producer_account_name: Name of producer account
 - org: {Object}
@@ -13,6 +13,8 @@ The current revision (1.0.1) is compliant with the JSON schema [Draft 2019-09](h
   - ownership_disclosure: Full URL to page,
   - email: Contact email
   - github_user: Operational github username
+  - chain_resources: Website with chain related resources (snapshots & backups)
+  - other_resources: [Array] - List of other relevant URLs 
   - branding: {Object} - Logo images
       - logo_256: Entire url to image 256x256px
       - logo_1024: Entire url to image 1024x1024px
@@ -93,6 +95,7 @@ For query type nodes one or more features from the list below must be added:
   - `dfuse`
   - `fio-api`
   - `snapshot-api`
+  - `dsp-api`
 
 ### Useful Links
 One can check for data validity using: https://www.jsonschemavalidator.net/
