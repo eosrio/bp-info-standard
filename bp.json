@@ -21,14 +21,14 @@
       "longitude": 0
     },
     "social": {
-      "hive": "",
-      "twitter": "",
-      "youtube": "",
-      "facebook": "",
-      "github":"",
-      "reddit": "",
       "keybase": "",
       "telegram": "",
+      "twitter": "",
+      "github":"",
+      "youtube": "",
+      "facebook": "",
+      "hive": "",
+      "reddit": "",
       "wechat":""
     }
   },
