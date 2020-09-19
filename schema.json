@@ -50,6 +50,10 @@
       "type": "string",
       "pattern": "^[\\w\\d_\\-\\.]*$"
     },
+    "facebook_username": {
+      "type": "string",
+      "pattern": "^[\\w\\d_\\-\\./]*$"
+    },
     "youtube_username": {
       "type": "string",
       "pattern": "^[\\w\\d_\\-\\./]*$"
@@ -104,7 +108,20 @@
         "github_user": {
           "$id": "/properties/org/properties/github_user",
           "description": "Operational github username",
-          "type": "string"
+          "oneOf": [
+            {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^[\\w\\d_\\-\\.]*$"
+              }
+            },
+            {
+              "type": "string",
+              "pattern": "^[\\w\\d_\\-\\.]*$"
+            }
+          ]
         },
         "branding": {
           "type": "object",
@@ -127,7 +144,7 @@
           "type": "object",
           "properties": {
             "facebook": {
-              "$ref": "#/$defs/username",
+              "$ref": "#/$defs/facebook_username",
               "description": "group/page address only, not the entire url"
             },
             "github": {
