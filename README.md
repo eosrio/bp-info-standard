@@ -3,7 +3,7 @@
 
 This is a proposed standard for Block Producer candidates to publish as the URL field of the `regproducer` action on the `eosio.system` contract.
 
-The current revision **v1.0.1** is compliant with the JSON schema [Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8)
+The current revision **v1.0.2** is compliant with the JSON schema [Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8)
 
 - producer_account_name: Name of producer account
 - org: {Object}
@@ -16,7 +16,7 @@ The current revision **v1.0.1** is compliant with the JSON schema [Draft 2019-09
   - chain_resources: Website with chain related resources (snapshots & backups)
   - other_resources: [Array] - List of other relevant URLs 
   - branding: {Object} - Logo images
-      - logo_256: Entire url to image 256x256px
+      - logo_256: Entire url to image 256x256px 
       - logo_1024: Entire url to image 1024x1024px
       - logo_svg: Entire url to image svg
    - location: {Object} - Organization location
@@ -52,7 +52,7 @@ The current revision **v1.0.1** is compliant with the JSON schema [Draft 2019-09
         - features supported by the `api_endpoint` or `ssl_endpoint` on query nodes, refer to the [list of features](https://github.com/eosrio/bp-info-standard#api-features)
 
 ### How to use it if you are Block Producer Candidate 
-Create a file named `bp.json` in the root of your domain. For instance `http://yourwebsite.com/bp.json` When you register your producer using the `system.regproducer` action, the url field should be filled with `http://yourwebsite.com`. **Do not put the bp.json file in the url.**
+Create a file named `bp.json` in the root of your domain. For instance `https://yourwebsite.com/bp.json` When you register your producer using the `system.regproducer` action, the url field should be filled with `https://yourwebsite.com`. **Do not put the bp.json file in the url.**
 
 ### Overriding data for specific chains
 
