@@ -12,7 +12,7 @@ The current revision **v1.0.1** is compliant with the JSON schema [Draft 2019-09
   - code_of_conduct: Full URL to page,
   - ownership_disclosure: Full URL to page,
   - email: Contact email
-  - github_user: Operational github username
+  - github_user: Operational github username (or array or usernames)
   - chain_resources: Website with chain related resources (snapshots & backups)
   - other_resources: [Array] - List of other relevant URLs 
   - branding: {Object} - Logo images
