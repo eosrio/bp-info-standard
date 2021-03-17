@@ -96,6 +96,7 @@ For query type nodes one or more features from the list below must be added:
   - `fio-api`
   - `snapshot-api`
   - `dsp-api`
+  - `atomic-assets-api`
 
 ### Useful Links
 One can check for data validity using: https://www.jsonschemavalidator.net/

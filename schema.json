@@ -269,7 +269,8 @@
                 "dfuse",
                 "fio-api",
                 "snapshot-api",
-                "dsp-api"
+                "dsp-api",
+                "atomic-assets-api"
               ]
             }
           }
