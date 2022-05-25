@@ -179,6 +179,10 @@
               "$ref": "#/$defs/youtube_username",
               "description": "channel address only"
             },
+            "medium": {
+              "$ref": "#/$defs/username",
+              "description": "medium username only"
+            },
             "discord": {
               "$ref": "#/$defs/username",
               "description": "discord"
