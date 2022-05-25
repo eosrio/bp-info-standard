@@ -40,6 +40,7 @@
         "latitude": 0,
         "longitude": 0
       },
+      "full": false,
       "node_type": "producer",
       "p2p_endpoint": "",
       "api_endpoint": "",
@@ -52,6 +53,7 @@
         "latitude": 0,
         "longitude": 0
       },
+      "full": true,
       "node_type":"seed",
       "p2p_endpoint": "",
       "api_endpoint": "",
@@ -64,6 +66,7 @@
         "latitude": 0,
         "longitude": 0
       },
+      "full": true,
       "node_type":"query",
       "p2p_endpoint": "",
       "api_endpoint": "",

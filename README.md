@@ -45,6 +45,7 @@ The current revision **v1.0.2** is compliant with the JSON schema [Draft 2019-09
         - producer: Node with signing key
         - query: Node that provides HTTP(S) APIs to the public
         - seed: Node that provides P2P access to the public
+    - full: `true/false` Indicates if the data is provided since the first block or trimmed at some point
     - p2p_endpoint: EOSIO P2P endpoint `host:port`
     - api_endpoint: EOSIO HTTP endpoint `http://host:port`
     - ssl_endpoint: EOSIO HTTPS endpoint `https://host:port`

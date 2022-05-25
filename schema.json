@@ -178,6 +178,10 @@
             "youtube": {
               "$ref": "#/$defs/youtube_username",
               "description": "channel address only"
+            },
+            "discord": {
+              "$ref": "#/$defs/username",
+              "description": "discord"
             }
           }
         },
@@ -230,6 +234,10 @@
               }
             ]
           },
+          "full": {
+            "description": "Provides full data history",
+            "type": "boolean"
+          },
           "p2p_endpoint": {
             "description": "EOSIO P2P endpoint (host:port)",
             "type": "string"
@@ -270,7 +278,8 @@
                 "fio-api",
                 "snapshot-api",
                 "dsp-api",
-                "atomic-assets-api"
+                "atomic-assets-api",
+                "firehose"
               ]
             }
           }
