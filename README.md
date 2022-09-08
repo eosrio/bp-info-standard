@@ -37,7 +37,7 @@ The current revision **v1.0.2** is compliant with the JSON schema [Draft 2019-09
     - wechat: Username
 - nodes: [Array]
     - location: Node location
-        - name: Node location in human readable format [City, State]
+        - name: Node location in human-readable format [City, State]
         - country: Node country code [XX]
         - latitude: Node latitude in decimal degrees
         - longitude: Node longitude in decimal degrees
