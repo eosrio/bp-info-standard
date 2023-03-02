@@ -72,6 +72,8 @@ The recommended way to specify multiple bp.json files under the same domain is t
 }
 ```
 
+It's posible to not include the slash on the sub-url value, as it is implied we are building an url.
+
 You can also override properties of the base `bp.json` file by creating a chain specific json file next to your base.
 
 ```
