@@ -283,7 +283,9 @@
                 "snapshot-api",
                 "dsp-api",
                 "atomic-assets-api",
-                "firehose"
+                "firehose",
+                "light-api",
+                "ipfs"
               ]
             }
           }
