@@ -100,6 +100,8 @@ For query type nodes one or more features from the list below must be added:
   - `snapshot-api`
   - `dsp-api`
   - `atomic-assets-api`
+  - `light-api`
+  - `ipfs`
 
 ### Useful Links
 One can check for data validity using: https://www.jsonschemavalidator.net/
