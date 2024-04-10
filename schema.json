@@ -285,7 +285,8 @@
                 "atomic-assets-api",
                 "firehose",
                 "light-api",
-                "ipfs"
+                "ipfs",
+                "substreams"
               ]
             }
           }
