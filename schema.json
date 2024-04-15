@@ -1,6 +1,6 @@
 {
   "title": "BlockProducer",
-  "description": "Information about a block producer on EOSIO blockchains",
+  "description": "Information about a block producer on AntelopeIO blockchains",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$defs": {
     "location": {
@@ -125,7 +125,7 @@
         },
         "branding": {
           "type": "object",
-          "properties":{
+          "properties": {
             "logo_256": {
               "$ref": "#/$defs/optional_url",
               "description": "Link to Organization logo [PNG format, 256x256]"
@@ -214,7 +214,8 @@
       "items": {
         "type": "object",
         "required": [
-          "node_type"
+          "node_type",
+          "full"
         ],
         "properties": {
           "location": {
@@ -229,12 +230,20 @@
                 "uniqueItems": true,
                 "items": {
                   "type": "string",
-                  "enum": ["producer", "query", "seed"]
+                  "enum": [
+                    "producer",
+                    "query",
+                    "seed"
+                  ]
                 }
               },
               {
                 "type": "string",
-                "enum": ["producer", "query", "seed"]
+                "enum": [
+                  "producer",
+                  "query",
+                  "seed"
+                ]
               }
             ]
           },
@@ -243,11 +252,11 @@
             "type": "boolean"
           },
           "p2p_endpoint": {
-            "description": "EOSIO P2P endpoint (host:port)",
+            "description": "Leap P2P endpoint (host:port)",
             "type": "string"
           },
           "api_endpoint": {
-            "description": "EOSIO HTTP endpoint (http://host:port)",
+            "description": "Service HTTP endpoint (http://host:port)",
             "type": "string",
             "if": {
               "pattern": ".+"
@@ -258,7 +267,7 @@
             }
           },
           "ssl_endpoint": {
-            "description": "EOSIO HTTPS endpoint (https://host:port)",
+            "description": "Service HTTPS endpoint (https://host:port)",
             "type": "string",
             "if": {
               "pattern": ".+"

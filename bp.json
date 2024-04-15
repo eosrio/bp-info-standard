@@ -3,16 +3,16 @@
   "org": {
     "candidate_name": "",
     "website": "",
-    "code_of_conduct":"",
-    "ownership_disclosure":"",
-    "email":"",
-    "github_user":"",
+    "code_of_conduct": "",
+    "ownership_disclosure": "",
+    "email": "",
+    "github_user": "",
     "chain_resources": "",
     "other_resources": [],
-    "branding":{
-      "logo_256":"",
-      "logo_1024":"",
-      "logo_svg":""
+    "branding": {
+      "logo_256": "",
+      "logo_1024": "",
+      "logo_svg": ""
     },
     "location": {
       "name": "",
@@ -24,12 +24,12 @@
       "keybase": "",
       "telegram": "",
       "twitter": "",
-      "github":"",
+      "github": "",
       "youtube": "",
       "facebook": "",
       "hive": "",
       "reddit": "",
-      "wechat":""
+      "wechat": ""
     }
   },
   "nodes": [
@@ -54,7 +54,7 @@
         "longitude": 0
       },
       "full": true,
-      "node_type":"seed",
+      "node_type": "seed",
       "p2p_endpoint": "",
       "api_endpoint": "",
       "ssl_endpoint": ""
@@ -67,12 +67,12 @@
         "longitude": 0
       },
       "full": true,
-      "node_type":"query",
+      "node_type": "query",
       "p2p_endpoint": "",
       "api_endpoint": "",
       "ssl_endpoint": "",
       "features": [
-        "chain_api"
+        "chain-api"
       ]
     }
   ]
