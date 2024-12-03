@@ -57,6 +57,24 @@
     "youtube_username": {
       "type": "string",
       "pattern": "^[\\w\\d_\\-\\./]*$"
+    },
+    "features": {
+      "type": "string",
+      "enum": [
+        "chain-api",
+        "account-query",
+        "history-v1",
+        "hyperion-v2",
+        "dfuse",
+        "fio-api",
+        "snapshot-api",
+        "dsp-api",
+        "atomic-assets-api",
+        "firehose",
+        "light-api",
+        "ipfs",
+        "substreams"
+      ]
     }
   },
   "type": "object",
@@ -281,22 +299,13 @@
             "type": "array",
             "uniqueItems": true,
             "items": {
-              "type": "string",
-              "enum": [
-                "chain-api",
-                "account-query",
-                "history-v1",
-                "hyperion-v2",
-                "dfuse",
-                "fio-api",
-                "snapshot-api",
-                "dsp-api",
-                "atomic-assets-api",
-                "firehose",
-                "light-api",
-                "ipfs",
-                "substreams"
-              ]
+              "$ref": "#/$defs/features"
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "propertyNames": {
+              "$ref": "#/$defs/features"
             }
           }
         }

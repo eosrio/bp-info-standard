@@ -73,7 +73,12 @@
       "ssl_endpoint": "",
       "features": [
         "chain-api"
-      ]
+      ],
+      "metadata": {
+        "chain-api": {
+          "read-mode": "head"
+        }
+      }
     }
   ]
 }

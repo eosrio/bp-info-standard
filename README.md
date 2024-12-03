@@ -5,7 +5,7 @@
 This is a proposed standard for Block Producer candidates to publish as the URL field of the `regproducer` action on
 the `eosio.system` contract.
 
-The current revision **v1.0.4** is compliant with the JSON
+The current revision **v1.0.5** is compliant with the JSON
 schema [Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8)
 
 - producer_account_name: Name of producer account
@@ -56,6 +56,8 @@ schema [Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-
     - features: [Array]
         - features supported by the `api_endpoint` or `ssl_endpoint` on query nodes, refer to
           the [list of features](https://github.com/eosrio/bp-info-standard#api-features)
+    - metadata: {Object}
+        - feature key: {Object} - Metadata for a specific feature
 
 ### How to use it if you are Block Producer Candidate
 
