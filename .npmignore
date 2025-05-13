@@ -1,0 +1,43 @@
+# Source files
+*.ts
+!*.d.ts
+validate.ts
+bp.json
+schema.json
+
+# Configuration files
+tsconfig.json
+tsup.config.ts
+.gitignore
+.github
+
+# Development files
+node_modules
+.vscode
+.idea
+.DS_Store
+
+# Test files
+test
+tests
+__tests__
+*.test.ts
+*.spec.ts
+
+# Example files
+examples
+example
+*.example.*
+
+# Documentation files (except README.md which is automatically included)
+docs
+
+# Build artifacts
+*.tsbuildinfo
+
+# Misc
+.env*
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

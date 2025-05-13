@@ -5,8 +5,17 @@
 This is a proposed standard for Block Producer candidates to publish as the URL field of the `regproducer` action on
 the `eosio.system` contract.
 
-The current revision **v1.0.5** is compliant with the JSON
-schema [Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8)
+The current revision **v1.1.0** adds [Zod](https://github.com/colinhacks/zod) for schema validation, providing improved type safety and better error messages, while maintaining compatibility with the original JSON Schema.
+
+### Recent Changes
+
+- **v1.1.0**:
+  - Added Zod-based schema validation alongside the existing JSON Schema
+  - Published as npm package `@eosrio/bp-info-standard`
+  - Added improved error handling with detailed validation messages
+  - Enhanced TypeScript support with full type inference
+
+The current `schema.json` is compliant with JSON schema [Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8)
 
 - producer_account_name: Name of producer account
 - org: {Object}
@@ -122,3 +131,86 @@ For query type nodes one or more features from the list below must be added:
 ### Useful Links
 
 One can check for data validity using: https://www.jsonschemavalidator.net/
+
+## Using as a Library
+
+This package can be used as a library to validate BP information in your JavaScript/TypeScript projects.
+
+### Installation
+
+```bash
+npm install @eosrio/bp-info-standard
+```
+
+### Usage
+
+#### Validating BP Information
+
+```typescript
+import { BPInfoSchema } from '@eosrio/bp-info-standard';
+
+// Your BP information object
+const bpInfo = {
+  producer_account_name: 'producername',
+  org: {
+    candidate_name: 'My Organization',
+    website: 'https://example.com',
+    code_of_conduct: 'https://example.com/code',
+    ownership_disclosure: 'https://example.com/ownership',
+    email: 'contact@example.com',
+    location: {
+      name: 'New York, USA',
+      country: 'US'
+    },
+    chain_resources: 'https://example.com/resources'
+  },
+  nodes: [
+    {
+      location: {
+        name: 'New York, USA',
+        country: 'US'
+      },
+      node_type: 'producer',
+      full: true
+    }
+  ]
+};
+
+// Validate the BP information
+const result = BPInfoSchema.safeParse(bpInfo);
+
+if (result.success) {
+  console.log('BP information is valid!');
+  // Use the validated data
+  const validatedData = result.data;
+} else {
+  console.log('BP information is invalid!');
+  // Handle validation errors
+  console.error(result.error);
+}
+```
+
+#### Handling Validation Errors
+
+```typescript
+import { BPInfoSchema, handleZodError } from '@eosrio/bp-info-standard';
+
+// Your BP information object
+const bpInfo = { /* ... */ };
+
+// Validate the BP information
+const result = BPInfoSchema.safeParse(bpInfo);
+
+if (!result.success) {
+  // Format the validation errors
+  const errorMessages = handleZodError(result.error, {
+    logToConsole: true,
+    originalObject: bpInfo
+  });
+
+  // Display the error messages
+  errorMessages.forEach(message => console.log(message));
+}
+```
+
+For more information about Zod schema validation, refer to the [Zod documentation](https://github.com/colinhacks/zod).
