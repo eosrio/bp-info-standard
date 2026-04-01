@@ -1,4 +1,4 @@
-import {ZodError} from "zod/dist/esm";
+import {ZodError} from "zod";
 
 /**
  * Formats ZodError into user-friendly error messages
