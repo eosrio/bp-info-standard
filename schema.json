@@ -232,8 +232,72 @@
       "items": {
         "type": "object",
         "required": [
-          "node_type",
-          "full"
+          "node_type"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "node_type": {
+                      "const": "seed"
+                    }
+                  },
+                  "required": ["node_type"]
+                },
+                {
+                  "properties": {
+                    "node_type": {
+                      "type": "array",
+                      "contains": {
+                        "const": "seed"
+                      }
+                    }
+                  },
+                  "required": ["node_type"]
+                }
+              ]
+            },
+            "then": {
+              "required": ["p2p_endpoint"]
+            }
+          },
+          {
+            "if": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "node_type": {
+                      "const": "query"
+                    }
+                  },
+                  "required": ["node_type"]
+                },
+                {
+                  "properties": {
+                    "node_type": {
+                      "type": "array",
+                      "contains": {
+                        "const": "query"
+                      }
+                    }
+                  },
+                  "required": ["node_type"]
+                }
+              ]
+            },
+            "then": {
+              "anyOf": [
+                {
+                  "required": ["api_endpoint"]
+                },
+                {
+                  "required": ["ssl_endpoint"]
+                }
+              ]
+            }
+          }
         ],
         "properties": {
           "location": {
@@ -266,7 +330,7 @@
             ]
           },
           "full": {
-            "description": "Provides full data history",
+            "description": "Provides full data history since block 1. Omit when not stated. false means history is trimmed.",
             "type": "boolean"
           },
           "p2p_endpoint": {

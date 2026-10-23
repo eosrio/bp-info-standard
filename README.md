@@ -5,68 +5,62 @@
 This is a proposed standard for Block Producer candidates to publish as the URL field of the `regproducer` action on
 the `eosio.system` contract.
 
-The current revision **v1.1.0** adds [Zod](https://github.com/colinhacks/zod) for schema validation, providing improved type safety and better error messages, while maintaining compatibility with the original JSON Schema.
+The current revision **v1.2.0** keeps the [Zod](https://github.com/colinhacks/zod) validator and `schema.json` on the same required set. `schema.json` is JSON Schema [Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8).
 
 ### Recent Changes
 
+- **v1.2.0**:
+  - `nodes[].full` is optional. Omit it when the publisher is not stating whether history starts at block 1. `true` means it does. `false` means history is trimmed.
+  - `schema.json` now requires `p2p_endpoint` on a seed and `api_endpoint` or `ssl_endpoint` on a query, matching the Zod schema.
+  - `org.website` is required in the Zod schema, matching `schema.json`.
+  - This document names every required field.
 - **v1.1.0**:
   - Added Zod-based schema validation alongside the existing JSON Schema
   - Published as npm package `@eosrio/bp-info-standard`
   - Added improved error handling with detailed validation messages
   - Enhanced TypeScript support with full type inference
 
-The current `schema.json` is compliant with JSON schema [Draft 2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8)
+### Required
 
-- producer_account_name: Name of producer account
-- org: {Object}
-    - candidate_name: Producer/organization name
-    - website: Block producer website
-    - code_of_conduct: Full URL to page,
-    - ownership_disclosure: Full URL to page,
-    - email: Contact email
-    - github_user: Operational GitHub username (or array or usernames)
-    - chain_resources: Website with chain related resources (snapshots & backups)
-    - other_resources: [Array] - List of other relevant URLs
-    - branding: {Object} - Logo images
-        - logo_256: Entire url to image 256x256px
-        - logo_1024: Entire url to image 1024x1024px
-        - logo_svg: Entire url to image svg
-    - location: {Object} - Organization location
-        - name: Location in human-readable format [City, State]
-        - country: Country code [XX] in accordance
-          to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-        - latitude: Latitude in decimal degrees
-        - longitude: Longitude in decimal degrees
-          },
-    - social: {Object} - NOT THE ENTIRE URL, only usernames on social networks,
-        - keybase: Username
-        - telegram: Username or group
-        - twitter: Username
-        - github: Username
-        - youtube: Channel address
-        - facebook: Page/group address
-        - hive: Username without @
-        - reddit: Username
-        - wechat: Username
-- nodes: [Array]
-    - location: Node location
-        - name: Node location in human-readable format [City, State]
-        - country: Node country code [XX]
-        - latitude: Node latitude in decimal degrees
-        - longitude: Node longitude in decimal degrees
-    - node_type: Type of service `producer/query/seed` or an array of choices `["query","seed"]`
-        - producer: Node with signing key
-        - query: Node that provides HTTP(S) APIs to the public
-        - seed: Node that provides P2P access to the public
-    - full: `true/false` Indicates if the data is provided since the first block or trimmed at some point
-    - p2p_endpoint: Leap P2P endpoint `host:port`
-    - api_endpoint: Leap/Service HTTP endpoint `http://host:port`
-    - ssl_endpoint: Leap/Service HTTPS endpoint `https://host:port`
-    - features: [Array]
-        - features supported by the `api_endpoint` or `ssl_endpoint` on query nodes, refer to
-          the [list of features](https://github.com/eosrio/bp-info-standard#api-features)
-    - metadata: {Object}
-        - feature key: {Object} - Metadata for a specific feature
+Both schemas reject a document that omits an unconditional field below. The endpoint rules apply only to the node types named with them.
+
+- `producer_account_name`: Producer account name.
+- `org.candidate_name`: Producer or organization name.
+- `org.website`: Block producer website. Full URL, with no trailing slash.
+- `org.location.name`: Location in human-readable form, such as city and state.
+- `org.location.country`: Country code `[XX]` in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+- `nodes`: Array of service nodes. It may be empty.
+- `nodes[].node_type`: `producer`, `query`, `seed`, or an array of those values, such as `["query","seed"]`.
+  - `producer`: node with a signing key.
+  - `query`: node that provides HTTP(S) APIs to the public.
+  - `seed`: node that provides P2P access to the public.
+- `nodes[].p2p_endpoint`: Required when `node_type` is `seed` or the array includes `seed`. Leap P2P endpoint, `host:port`.
+- `nodes[].api_endpoint` or `nodes[].ssl_endpoint`: At least one is required when `node_type` is `query` or the array includes `query`. `api_endpoint` is `http://...`. `ssl_endpoint` is `https://...`.
+
+### Optional
+
+Every other field is optional. A present value still has to match the format in `schema.json`.
+
+- `org.code_of_conduct`: Full URL to the page.
+- `org.ownership_disclosure`: Full URL to the page.
+- `org.email`: Contact email.
+- `org.github_user`: Operational GitHub username, or an array of usernames.
+- `org.chain_resources`: Website with chain-related resources such as snapshots and backups.
+- `org.other_resources`: Array of other relevant URLs.
+- `org.branding`: Logo images.
+  - `logo_256`: URL of a 256x256 PNG.
+  - `logo_1024`: URL of a 1024x1024 PNG.
+  - `logo_svg`: URL of an SVG.
+- `org.location.latitude` and `org.location.longitude`: Decimal degrees.
+- `org.social`: Usernames only, not full URLs.
+  - `keybase`, `telegram`, `twitter`, `github`, `reddit`, `wechat`, `hive` (no `@`), `medium`, `discord`
+  - `youtube`: channel address
+  - `facebook`: page or group address
+- `nodes[].location`: Same shape as `org.location`. `name` and `country` are required only when `location` itself is present.
+- `nodes[].full`: `true` when the data starts at block 1. `false` when history is trimmed. Omit the field when the publisher is not making that claim.
+- `nodes[].p2p_endpoint`, `nodes[].api_endpoint`, `nodes[].ssl_endpoint`: Optional on node types that do not require them.
+- `nodes[].features`: Features served by the query endpoint. See [API features](#api-features). The schema does not require this array.
+- `nodes[].metadata`: Object keyed by a feature name.
 
 ### How to use it if you are Block Producer Candidate
 
@@ -112,7 +106,7 @@ override the base properties.
 
 ### API Features
 
-For query type nodes one or more features from the list below must be added:
+A query node may list the features its endpoint serves. Each entry is one of:
 
 - `chain-api`: basic eosio::chain_api_plugin (/v1/chain/*)
 - `account-query`: (/v1/chain/get_accounts_by_authorizers)

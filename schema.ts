@@ -40,7 +40,7 @@ export const BPInfoSchema = z.object({
     org: z.object({
         location: location.describe("Organization location"),
         candidate_name: z.string().describe("Producer/organization name"),
-        website: optionalUrl.describe("Organization website"),
+        website: z.url().describe("Organization website"),
         code_of_conduct: optionalUrl.describe("Link to Code of Conduct"),
         ownership_disclosure: optionalUrl.describe("Link to company ownership disclosure"),
         email: z.email().describe("Organization email").optional(),
@@ -72,7 +72,7 @@ export const BPInfoSchema = z.object({
     nodes: z.array(z.object({
         location: location.describe("Node location").optional(),
         node_type: z.union([z.array(nodeTypes), nodeTypes]).describe("Type of service"),
-        full: z.boolean().describe("Provides full data history"),
+        full: z.boolean().optional().describe("Provides full data history since block 1. Omit when not stated. false means history is trimmed."),
         p2p_endpoint: hostPortSchemaNative.describe("Leap P2P endpoint (host:port)").optional(),
         api_endpoint: z.url().describe("Service HTTP endpoint (http://host:port)").optional(),
         ssl_endpoint: z.string().describe("Service HTTPS endpoint (https://host:port)").optional(),
